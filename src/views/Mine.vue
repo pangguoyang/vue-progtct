@@ -1,5 +1,7 @@
 <template>
-  
+  <div class="mine">
+      我的登陆页面
+  </div>
 </template>
 
 <script>

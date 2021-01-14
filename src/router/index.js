@@ -1,22 +1,51 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import Nav from '../views/Nav.vue'
+import Index from '../views/Index.vue'
+import Classify from '../views/Classify.vue'
+import Near from '../views/Near.vue'
+import Buy from '../views/Buy.vue'
+import Mine from '../views/Mine.vue'
+import '../assets/js/index'
+
 
 Vue.use(VueRouter)
 
+//需要全局引入的 在main.js中 比如vant , axios
+//全局引入axios后直接用 就可以 在组件文件中直接this.axios.get就可有 不需要在index.js中引入外部接口的自己写的那个js文件
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
-  },
-  {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    redirect:'/Nav',
+    name: 'index',
+    component: Index,
+    children:[
+      {
+        name:'classify',
+        path:'Classify',
+        component: Classify
+      },
+      {
+        name:'near',
+        path:'Near',
+        component: Near
+      },
+      {
+        name:'buy',
+        path:'Buy',
+        component: Buy
+      },
+      {
+        name:'mine',
+        path:'Mine',
+        component: Mine
+      },
+      {
+        name:'nav',
+        path:'Nav',
+        component: Nav
+      }
+    ]
   }
 ]
 
