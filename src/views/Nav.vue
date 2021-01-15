@@ -45,10 +45,28 @@
     <!-- 滚动广告 -->
     <div class="rolling wrap">
       <img src="../assets/img/rolling.png" alt="">
-      <van-swipe style="height: 1rem;" vertical :autoplay="3000">
+      <van-swipe style="height: 1rem;" vertical :autoplay="3000" duration="1000">
         <van-swipe-item><span>价格</span>最新鸡蛋价格3.2元/500g</van-swipe-item>
         <van-swipe-item><span>价格</span>最新鸡蛋价格125元/20kg</van-swipe-item>
      </van-swipe>
+    </div>
+    <!-- 主体内容 商品 -->
+    <div class="goods">
+        <div class="greens">
+          <img src="../assets/img/class1.webp" alt="" class="show">
+          <ul>
+            <li></li>
+          </ul>
+        </div>
+        <div class="oil">
+          <img src="../assets/img/class2.webp" alt="" class="show">
+        </div>
+        <div class="fruit">
+          <img src="../assets/img/class3.webp" alt="" class="show">
+        </div>
+        <div class="delicious">
+          <img src="../assets/img/class4.webp" alt="" class="show">
+        </div>
     </div>
   </div>
 </template>
@@ -57,7 +75,8 @@
 export default {
  data(){
     return {
-      list:[]
+      list:[],
+      showlist:[]
     }
   },
   created(){
@@ -68,9 +87,39 @@ export default {
       }).catch(err=>{
         console.log(err);
       })
-    }
+      this.axios.get("http://localhost:3000/show").then(res=>{
+        // this.showlist = this.showlist.concat(res.data.data)
+        console.log(res)
+        // console.log(this.showlist);
+      }).catch(err=>{
+        console.log(err);
+      })
+    },
+    methods:{
+      arr:[],
+      set(){
+        var str = '';
+        for(var i = 0;i<4;i++){
+            str+=`
+                  <div class="greens">
+                    <img src="{{arr[i]}}" alt="" class="show">
+                    <ul>`
+                    for(var j = i * 6;j<(i+1)*6;j++){
+                      str+=`
+                      <li></li>
+                      `
+                    }
+                      
+
+           
+        }
+      }
+        
   }
 
+  }
+  
+  
 </script>
 
 <style scoped>
@@ -206,8 +255,15 @@ input::-webkit-input-placeholder{
     margin: 0 .133333rem;
     border-radius: .08rem;
   }
-  .rolling .van-swipe .van-swipe__indicator,.rolling .van-swipe .van-swipe__indicator--active{
-      width: 0;
-      height: 0;
+  .rolling >>> .van-swipe__indicator{
+      display: none;
+  }
+  /* 商品列表 */
+  /* .goods{
+
+  } */
+  .show{
+    width: 100%;
+    height: auto;
   }
 </style>
