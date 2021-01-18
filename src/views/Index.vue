@@ -4,23 +4,23 @@
     <!-- 公共底部 -->
     <div class="index1">
       <ul class="tab">
-        <li>
+        <li @click="jumpIndex">
            <span><van-icon name="wap-home-o" /></span>
            <p>首页</p>
         </li>
-        <li>
+        <li @click="jumpClassify">
            <span><van-icon name="apps-o" /></span>
            <p>分类</p>
         </li>
-        <li>
+        <li @click="jumpNear">
            <span><van-icon name="location-o" /></span>
            <p>附近商家</p>
         </li>
-        <li>
+        <li @click="jumpCar">
            <span><van-icon name="cart-o" /></span>
            <p>购物车</p>
         </li>
-        <li>
+        <li @click="jumpMine">
            <span><van-icon name="contact" /></span>
            <p>我的</p>
         </li>
@@ -30,8 +30,25 @@
 </template>
 
 <script>
-
+//  /加不加都可以 编程式导航 需要绑定事件
 export default {
+  methods:{
+    jumpIndex(){
+      this.$router.push('/')
+    },
+    jumpClassify(){
+      this.$router.push('/Classify')
+    },
+    jumpNear(){
+      this.$router.push('Near')
+    },
+    jumpCar(){
+      this.$router.push('/Buy')
+    },
+    jumpMine(){
+      this.$router.push('/Mine')
+    }
+  }
 }
 </script>
 

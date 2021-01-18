@@ -1,0 +1,41 @@
+.goods{
+    margin-bottom: 3.333333rem;
+}
+.goods .greens .show{
+    width: 100%;
+}
+.goods .greens ul{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .goods .greens li{
+    width: 2.8rem;
+    padding: .133333rem;
+    font-size: .373333rem;
+    color: #666;
+  }
+  .goods .greens img{
+      width: 3.066667rem;
+      height: 3.066667rem;
+  }
+  .title{
+      height: 1.066667rem;
+      overflow: hidden;
+  }
+  .price{
+      color: #F56456;
+      height: .933333rem;
+      line-height: .933333rem;
+  }
+  p{
+      margin: 0;
+  }
+  .waring{
+      font-size: .533333rem;
+      color: #333;
+      /* position: absolute; */
+      position: relative;
+      bottom: 2.5rem;
+      left: 3.5rem;
+  }
